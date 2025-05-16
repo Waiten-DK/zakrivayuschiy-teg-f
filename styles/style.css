@@ -13,4 +13,43 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font);
+  background-image: var(--bg-img);
+  display: flex;
+  flex-direction: column;
+  background-attachment: fixed;
+  align-items: center;
+}
+
+
+.header {
+  width: clamp(375px, 100%, 700px);
+  block-size: 368px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--accent-font);
+  margin: 100px 0;
+  gap: 20px;
+  border: 2px solid #000;
+  background-color: #fff;
+}
+
+.header__title {
+  font-family: var(--accent-font);
+  font-size: clamp(3.063rem, 2.71rem + 2.502vw, 4.063rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-block-start: 131px;
+}
+
+.header__subtitle {
+  font-size: clamp(0.875rem, 1.677rem + 0.845vw, 1.438rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
 }
