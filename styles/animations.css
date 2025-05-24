@@ -9,3 +9,125 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+
+@keyframes sparks {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: var(--spark-color);
+  }
+}
+
+@keyframes zoom {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.25;
+  }
+}
+
+.card__like-button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0px 0px;
+  transition: box-shadow 0.3s ease;
+}
+
+.card__like-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  size: 100%;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: left;
+}
+
+.card__like-button:hover::before {
+  transform: scaleX(1);
+}
+
+.save__button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0px 0px;
+  transition: box-shadow 0.3s ease;
+}
+
+.save__button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  size: 100%;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: left;
+}
+
+.save__button:hover::before {
+  transform: scaleX(1);
+}
+
+.core,
+.main-body,
+.sparks {
+  fill: transparent;
+}
+
+.core {
+  transition: fill linear 0.03s;
+}
+
+.main-body {
+  transition: fill linear 0.3s;
+}
+
+.contour {
+  fill: var(--hover-color);
+  transition: fill linear 0.1s;
+}
+
+.card__icon-button:hover .core {
+  fill: var(--hover-color);
+  transition: fill linear var(--animation-time);
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--hover-color);
+  transition: fill linear var(--animation-time) 0.05s;
+}
+
+.card__icon-button:active .core {
+  fill: var(--body-color);
+  transition: fill linear var(--animation-time);
+}
+
+.card__icon-button:active .main-body {
+  fill: var(--body-color);
+  transition: fill linear var(--animation-time);
+}
+
+.like-icon.is-liked {
+  animation: ease-in 0.3s 0.1s alternate zoom;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--body-color);
+  transition: fill linear var(--animation-time);
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--body-color);
+  transition: fill linear var(--animation-time) 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--body-color);
+  transition: fill linear var(--animation-time) 0.06s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks ease-in 0.3s 0.3s;
+}

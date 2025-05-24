@@ -100,7 +100,7 @@
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
   font-family: var(--accent-font);
-  margin-block-start: 22px;
+  margin-block-start: 27px;
   padding-right: 27px;
 }
 
@@ -133,14 +133,17 @@
 .card__button {
   display: flex;
   justify-content: end;
-  column-gap: 6px;
   margin-block-start: 4px;
 }
 
 .card__icon-button {
   border: none;
-  margin-block-start: 8px;
+  margin-block-start: 2px;
   background-color: #fff;
+}
+
+.like-icon {
+  padding: 1px;
 }
 
 .card__like-button {
@@ -153,10 +156,123 @@
   block-size: 38px;
   width: 130px;
   background-color: #fff;
+  position: relative;
 }
 
-/* 2 card */
+.button__text {
+  color: #fff;
+  mix-blend-mode: difference;
+  z-index: 1;
+}
 
+.save__button {
+  block-size: 55px;
+  inline-size: 335px;
+  gap: 4px;
+  border: var(--border);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-block-end: 100px;
+  position: relative;
+}
+
+.button__text-save {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90%;
+  font-family: var(--accent-font);
+}
+
+.floppy__disk-icon {
+  inline-size: 21px;
+  block-size: 21px;
+}
+
+/* Диалог */
+
+.save__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block-end: 100px;
+  gap: 8px;
+  inline-size: 339px;
+  block-size: 55px;
+}
+
+.button__text {
+  outline: none;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90%;
+}
+
+.size__text {
+  margin-inline-end: 10px;
+}
+
+.floppy__disket {
+  block-size: 22px;
+  inline-size: 32px;
+}
+
+.floppy__icon {
+  display: block;
+  block-size: 39px;
+  inline-size: 39px;
+}
+
+.modal__container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+}
+
+.button__text-window {
+  inline-size: 239px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  font-family: var(--accent-font);
+}
+
+.modal__button {
+  block-size: 38px;
+  inline-size: 100%;
+  border: var(--border);
+}
+
+.modal__form {
+  padding-top: 30px;
+}
+
+#modal {
+  border: 2px solid var(--accent-color, #000);
+  padding: 30px;
+  background-color: #fff;
+  block-size: 193px;
+  inline-size: 357px;
+}
+
+#modal[open] {
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+/* размеры карточек под контент */
 .block__size-zero {
   block-size: 224px;
   padding: 25px;
@@ -195,4 +311,127 @@
 .block__size-seven {
   block-size: 308px;
   padding: 25px;
+}
+
+/* Фильтры */
+.card__image-one {
+  filter: grayscale(1);
+}
+
+.card__image-two {
+  filter: brightness(250%) contrast(150%);
+}
+
+.card__image-three {
+  filter: saturate(25%);
+}
+
+.card__image-four {
+  filter: sepia(150%);
+}
+
+.card__image-five {
+  filter: invert(0.7);
+}
+
+.card__image-six {
+  filter: blur(0.15rem);
+}
+
+.card__image-seven {
+  filter: contrast(200%) hue-rotate(-90deg);
+}
+
+@media (width <= 375px) {
+  .header {
+    block-size: 329px;
+  }
+
+  .header__title {
+    font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+    margin-block-start: 121px;
+  }
+
+  .header__subtitle {
+    font-size: clamp(0.875rem, 0.677rem + 0.845vw, 1.438rem);
+  }
+
+  .card__image-watermark {
+    margin-block-start: 21px;
+    padding-right: 13px;
+  }
+
+  .content {
+    align-items: normal;
+  }
+
+  .my__text {
+    padding-top: 28px;
+  }
+
+  .block__size-zero {
+    block-size: 329px;
+    padding: 25px;
+    padding-top: 22px;
+  }
+
+  .block__size-one {
+    block-size: 411px;
+    padding: 25px;
+  }
+
+  .block__size-two {
+    block-size: 329px;
+    padding: 25px;
+  }
+
+  .block__size-three {
+    block-size: 392px;
+    padding: 25px;
+  }
+
+  .block__size-four {
+    block-size: 434px;
+    padding: 25px;
+  }
+
+  .block__size-five {
+    block-size: 308px;
+    padding: 25px;
+  }
+
+  .block__size-six {
+    block-size: 371px;
+    padding: 25px;
+  }
+
+  .block__size-seven {
+    block-size: 494px;
+    padding: 25px;
+  }
+
+  .save__button {
+    display: flex;
+    margin-block-end: 100px;
+    gap: 10px;
+    inline-size: 311px;
+    block-size: 86px;
+    flex-direction: column;
+    margin-inline-start: 32px;
+    padding-right: 17px;
+  }
+
+  .floppy__disket {
+    block-size: 29px;
+    inline-size: 40px;
+  }
+
+  .size__text {
+    margin-inline-start: 11px;
+    margin-inline-end: 0px;
+  }
+  .floppy__icon {
+    block-size: 40px;
+    inline-size: 40px;
+  }
 }
