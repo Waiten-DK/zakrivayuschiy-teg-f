@@ -22,8 +22,7 @@
 }
 
 .header {
-  width: var(--width-page);
-  block-size: 368px;
+  inline-size: var(--width-page);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,6 +31,7 @@
   gap: 20px;
   border: var(--border);
   background-color: #fff;
+  block-size: clamp(20.438rem, 19.535rem + 3.81vi, 23rem);
 }
 
 .header__title {
@@ -56,6 +56,7 @@
 /* main  */
 .content {
   width: var(--width-page);
+  inline-size: clamp(23.438rem, 16.285rem + 30.516vi, 43.75rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,6 +81,8 @@
   aspect-ratio: 1/1;
   display: flex;
   width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .card__image-watermark {
@@ -97,11 +100,17 @@
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke: 1px #fff;
   font-family: var(--accent-font);
   margin-block-start: 27px;
   padding-right: 27px;
+}
+
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
+  .card__image-watermark {
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+  }
 }
 
 .card__container {
@@ -111,6 +120,8 @@
   align-items: flex-end;
   border: var(--border);
   border-block-start: none;
+  gap: 25px;
+  padding: 25px;
 }
 
 .card__text {
@@ -121,13 +132,8 @@
   line-height: 21px;
 }
 
-.my__text {
-  font-family: var(--main-font);
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 21px;
-  padding-top: 25px;
+.button {
+  transition: box-shadow 0.3s ease;
 }
 
 .card__button {
@@ -176,6 +182,7 @@
   justify-content: center;
   margin-block-end: 100px;
   position: relative;
+  background-color: #fff;
 }
 
 .button__text-save {
@@ -186,22 +193,7 @@
   font-family: var(--accent-font);
 }
 
-.floppy__disk-icon {
-  inline-size: 21px;
-  block-size: 21px;
-}
-
 /* Диалог */
-
-.save__button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-block-end: 100px;
-  gap: 8px;
-  inline-size: 339px;
-  block-size: 55px;
-}
 
 .button__text {
   outline: none;
@@ -213,18 +205,20 @@
 }
 
 .size__text {
-  margin-inline-end: 10px;
+  margin-inline-end: 14px;
 }
 
 .floppy__disket {
-  block-size: 22px;
-  inline-size: 32px;
+  inline-size: 29px;
+  block-size: 34px;
+  padding-top: 6px;
+  mix-blend-mode: difference;
+  z-index: 1;
 }
 
 .floppy__icon {
-  display: block;
-  block-size: 39px;
-  inline-size: 39px;
+  block-size: 40px;
+  inline-size: 40px;
 }
 
 .modal__container {
@@ -254,15 +248,14 @@
   padding-top: 30px;
 }
 
-#modal {
+.modal {
   border: 2px solid var(--accent-color, #000);
   padding: 30px;
   background-color: #fff;
-  block-size: 193px;
   inline-size: 357px;
 }
 
-#modal[open] {
+.modal[open] {
   display: flex;
   padding: 30px;
   flex-direction: column;
@@ -272,81 +265,36 @@ dialog::backdrop {
   background-color: rgb(0 0 0 / 0.75);
 }
 
-/* размеры карточек под контент */
-.block__size-zero {
-  block-size: 224px;
-  padding: 25px;
-}
-
-.block__size-one {
-  block-size: 266px;
-  padding: 25px;
-}
-
-.block__size-two {
-  block-size: 224px;
-  padding: 25px;
-}
-
-.block__size-three {
-  block-size: 266px;
-  padding: 25px;
-}
-
-.block__size-four {
-  block-size: 287px;
-  padding: 25px;
-}
-
-.block__size-five {
-  block-size: 224px;
-  padding: 25px;
-}
-
-.block__size-six {
-  block-size: 266px;
-  padding: 25px;
-}
-
-.block__size-seven {
-  block-size: 308px;
-  padding: 25px;
-}
-
 /* Фильтры */
-.card__image-one {
+.card__image-grayscale {
   filter: grayscale(1);
 }
 
-.card__image-two {
+.card__image-contrast {
   filter: brightness(250%) contrast(150%);
 }
 
-.card__image-three {
+.card__image-saturate {
   filter: saturate(25%);
 }
 
-.card__image-four {
+.card__image-sepia {
   filter: sepia(150%);
 }
 
-.card__image-five {
+.card__image-invert {
   filter: invert(0.7);
 }
 
-.card__image-six {
+.card__image-blur {
   filter: blur(0.15rem);
 }
 
-.card__image-seven {
+.card__image-rotate {
   filter: contrast(200%) hue-rotate(-90deg);
 }
 
 @media (width <= 375px) {
-  .header {
-    block-size: 329px;
-  }
-
   .header__title {
     font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
     margin-block-start: 121px;
@@ -365,69 +313,21 @@ dialog::backdrop {
     align-items: normal;
   }
 
-  .my__text {
-    padding-top: 28px;
-  }
-
-  .block__size-zero {
-    block-size: 329px;
-    padding: 25px;
-    padding-top: 22px;
-  }
-
-  .block__size-one {
-    block-size: 411px;
-    padding: 25px;
-  }
-
-  .block__size-two {
-    block-size: 329px;
-    padding: 25px;
-  }
-
-  .block__size-three {
-    block-size: 392px;
-    padding: 25px;
-  }
-
-  .block__size-four {
-    block-size: 434px;
-    padding: 25px;
-  }
-
-  .block__size-five {
-    block-size: 308px;
-    padding: 25px;
-  }
-
-  .block__size-six {
-    block-size: 371px;
-    padding: 25px;
-  }
-
-  .block__size-seven {
-    block-size: 494px;
-    padding: 25px;
-  }
-
   .save__button {
-    display: flex;
-    margin-block-end: 100px;
-    gap: 10px;
-    inline-size: 311px;
-    block-size: 86px;
     flex-direction: column;
-    margin-inline-start: 32px;
-    padding-right: 17px;
+    gap: 1px;
+    margin-inline-start: 33px;
+    inline-size: 311px;
+    height: 84px;
   }
 
   .floppy__disket {
-    block-size: 29px;
-    inline-size: 40px;
+    width: 41px;
+    height: 45px;
   }
 
   .size__text {
-    margin-inline-start: 11px;
+    margin-inline-start: 0px;
     margin-inline-end: 0px;
   }
   .floppy__icon {
