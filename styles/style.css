@@ -19,6 +19,7 @@
   flex-direction: column;
   background-attachment: fixed;
   align-items: center;
+  font-variation-settings: "wght" var(--text-card, 400);
 }
 
 .header {
@@ -56,10 +57,8 @@
 /* main  */
 .content {
   width: var(--width-page);
-  inline-size: clamp(23.438rem, 16.285rem + 30.516vi, 43.75rem);
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .card {
@@ -75,6 +74,7 @@
   line-height: normal;
   display: flex;
   padding: 5px 10px;
+  font-variation-settings: "wght" var(--text-title, 700);
 }
 
 .card__image {
@@ -130,6 +130,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
+  font-variation-settings: "wght" var(--text-card, 400);
 }
 
 .button {
@@ -140,16 +141,13 @@
   display: flex;
   justify-content: end;
   margin-block-start: 4px;
+  align-items: center;
 }
 
 .card__icon-button {
   border: none;
-  margin-block-start: 2px;
   background-color: #fff;
-}
-
-.like-icon {
-  padding: 1px;
+  block-size: 36px;
 }
 
 .card__like-button {
@@ -169,6 +167,12 @@
   color: #fff;
   mix-blend-mode: difference;
   z-index: 1;
+}
+
+.save__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .save__button {
@@ -242,6 +246,7 @@
   block-size: 38px;
   inline-size: 100%;
   border: var(--border);
+  background-color: #fff;
 }
 
 .modal__form {
@@ -333,5 +338,9 @@ dialog::backdrop {
   .floppy__icon {
     block-size: 40px;
     inline-size: 40px;
+  }
+
+  .save__container {
+    align-items: normal;
   }
 }
