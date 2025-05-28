@@ -31,7 +31,6 @@
 .button:focus {
   outline: none;
   box-shadow: 2px 2px 0px 0px;
-  transition: box-shadow 0.3s ease;
 }
 
 .button::before {
@@ -85,7 +84,7 @@
 
 .card__icon-button:active .main-body {
   fill: var(--body-color);
-  transition: fill linear var(--animation-time) 0.06;
+  transition: fill linear var(--animation-time) 0.05s;
 }
 
 .like-icon.is-liked {
@@ -94,12 +93,12 @@
 
 .like-icon.is-liked .core {
   fill: var(--body-color);
-  transition: fill linear var(--animation-time) 0.05;
+  transition: fill linear var(--animation-time) 0s;
 }
 
 .like-icon.is-liked .main-body {
   fill: var(--body-color);
-  transition: fill linear var(--animation-time) 0.06s;
+  transition: fill linear var(--animation-time) 0.05s;
 }
 
 .like-icon.is-liked .contour {

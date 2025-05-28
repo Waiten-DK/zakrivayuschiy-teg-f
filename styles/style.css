@@ -32,7 +32,6 @@
   gap: 20px;
   border: var(--border);
   background-color: #fff;
-  block-size: clamp(20.438rem, 19.535rem + 3.81vi, 23rem);
 }
 
 .header__title {
@@ -44,6 +43,7 @@
   text-transform: uppercase;
   text-decoration: none;
   margin-block-start: 131px;
+  outline: none;
 }
 
 .header__subtitle {
@@ -52,6 +52,7 @@
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
+  padding-block-end: 125px;
 }
 
 /* main  */
@@ -100,7 +101,6 @@
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
-  -webkit-text-stroke: 1px #fff;
   font-family: var(--accent-font);
   margin-block-start: 27px;
   padding-right: 27px;
@@ -140,14 +140,19 @@
 .card__button {
   display: flex;
   justify-content: end;
-  margin-block-start: 4px;
-  align-items: center;
+  column-gap: 4px;
+  block-size: 38px;
 }
 
 .card__icon-button {
   border: none;
   background-color: #fff;
-  block-size: 36px;
+}
+
+.like-icon {
+  width: 36px;
+  height: 39px;
+  align-self: center;
 }
 
 .card__like-button {
@@ -177,8 +182,8 @@
 
 .save__button {
   block-size: 55px;
-  inline-size: 335px;
-  gap: 4px;
+  inline-size: 340px;
+  gap: 0px;
   border: var(--border);
   display: flex;
   flex-direction: row;
@@ -213,7 +218,7 @@
 }
 
 .floppy__disket {
-  inline-size: 29px;
+  inline-size: 42px;
   block-size: 34px;
   padding-top: 6px;
   mix-blend-mode: difference;
